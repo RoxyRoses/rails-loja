@@ -18,6 +18,19 @@
   </head>
 
   <body>
-    <%= yield %>
+     <%= nav_bar brand: "Loja", brand_link: root_url do %>
+        <%= menu_group do%>
+          <%= menu_item "Criar novo produto", new_produto_path%>
+        <% end %>
+          <%= form_tag busca_produto_path, method: :get, class:"navbar-from" do%>
+            <div class="form_group">
+                <%= text_field_tag :nome, @nome, class:"form-control"%>
+                <%= button_to "Buscar", nil, class: "btn btn-default"%>
+            </div>
+          <% end %>
+    <% end %>
+      <div class="container">
+        <%= yield %>
+      </div>
   </body>
 </html>
