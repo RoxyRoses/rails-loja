@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :departamentos
   root to: "produtos#index"
-  resources :produtos, only: [:new, :create, :destroy]
+  resources :produtos, only: [ :new, :create, :destroy, :edit, :update ]
   get "produtos/busca", to: "produtos#busca", as: :busca_produto
   get "up" => "rails/health#show", as: :rails_health_check
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

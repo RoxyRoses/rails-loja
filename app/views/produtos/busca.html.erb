@@ -2,19 +2,12 @@
     <thead>
         <td>Nome</td>
         <td>Descrição</td>
+        <td>Departamento</td>
         <td>Preço</td>
         <td>Quantidade</td>
-        <td colspan="1">
+        <td colspan="2">
     </thead>
     <tbody>
-        <% @produtos.each do |produto|%>
-        <tr>
-            <td><%= produto.nome%></td>
-            <td><%= produto.descricao%></td>
-            <td><%= produto.preco%></td>
-            <td><%= produto.quantidade%></td>
-            <td><%= button_to "Remover", produto, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Tem certeza que deseja remover o #{produto.nome}?"}, class: "btn btn-danger"  %></td>
-        </tr>
-        <% end %>
+        <%= render @produtos%>
     </tbody>
 </table>
